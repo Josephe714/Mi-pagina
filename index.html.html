@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 ¡Feliz Cumpleaños Yiyita! 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6f0, #fff0e6);
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      padding: 40px;
+      color: #4b2e00;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 4em;
+      margin-bottom: 10px;
+      color: #e91e63;
+    }
+
+    .foto {
+      margin: 30px auto;
+      border-radius: 20px;
+      max-width: 350px;
+      box-shadow: 0 0 20px #ffb3b3;
+    }
+
+    .mensaje {
+      font-size: 1.5em;
+      margin: 30px auto;
+      line-height: 1.6em;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 700px;
+      box-shadow: 0 0 10px #ffcccc;
+    }
+
+    .video-container {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    iframe {
+      border-radius: 20px;
+      box-shadow: 0 0 20px #aaa;
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e91e63;
+    }
+
+    #pastel-container {
+      display: none;
+      margin: 40px auto;
+      position: relative;
+      width: 300px;
+    }
+
+    #pastel-img {
+      width: 100%;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+    }
+
+    .velas {
+      position: absolute;
+      top: 20px;
+      left: 90px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .vela {
+      width: 10px;
+      height: 30px;
+      background-color: #FFD700;
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .llama {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 10px solid orange;
+      position: absolute;
+      top: -10px;
+      left: -2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .pastel-partido {
+      transform: scale(1.05) rotate(-3deg);
+      filter: brightness(1.1);
+    }
+
+    /* Corazones animados */
+    .corazon {
+      position: fixed;
+      bottom: 0;
+      font-size: 2em;
+      animation: flotar 4s linear forwards;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎈 ¡Feliz Cumpleaños, Yiyita! 🎈</h1>
+
+  <img src="yiyita.jpg" alt="Foto de Yiyita" class="foto">
+
+  <div class="mensaje">
+    Hoy celebramos la vida de un ser maravilloso, de esa alma que con su ternura y alegría transforma cada rincón en un lugar más cálido, más bello… simplemente mágico. <br><br>
+    Yiyita, que este nuevo año que comienza para ti esté repleto de amor del bueno, de sonrisas que abracen el alma y de sueños que no solo se cumplan, sino que te hagan volar. <br><br>
+    ¡Feliz cumpleaños, princesa hermosa! 💖🌸🎂 <br>
+    Que la vida siempre te devuelva multiplicado todo lo bello que das.
+  </div>
+  
+
+  <!-- Pastel de cumpleaños -->
+  <div id="pastel-container">
+    <div class="velas">
+      <div class="vela"><div class="llama"></div></div>
+      <div class="vela"><div class="llama"></div></div>
+      <div class="vela"><div class="llama"></div></div>
+    </div>
+    <img id="pastel-img" src="https://i.imgur.com/JR0bBR1.png" alt="Pastel de cumpleaños" onclick="encenderVelas()">
+  </div>
+
+  <div class="video-container">
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/Jguqnlymeuk?si=Arl5JldrXCTLd9N0"
+      title="YouTube video player"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    function mostrarPastel() {
+      document.getElementById('pastel-container').style.display = 'block';
+    }
+
+    function encenderVelas() {
+      const llamas = document.querySelectorAll('.llama');
+      llamas.forEach(llama => llama.style.opacity = '1');
+    }
+
+    function partirPastel() {
+      document.getElementById('pastel-img').classList.add('pastel-partido');
+    }
+
+    function cerrarPastel() {
+      document.getElementById('pastel-container').style.display = 'none';
+      document.getElementById('pastel-img').classList.remove('pastel-partido');
+      const llamas = document.querySelectorAll('.llama');
+      llamas.forEach(llama => llama.style.opacity = '0');
+    }
+
+    // Corazones automáticos cada 0.2 segundos
+    setInterval(() => {
+      const corazon = document.createElement('div');
+      corazon.className = 'corazon';
+      corazon.textContent = '💖';
+      corazon.style.left = Math.random() * 100 + 'vw';
+      document.body.appendChild(corazon);
+
+      setTimeout(() => corazon.remove(), 4000);
+    }, 200);  // Corazones se crean cada 0.2 segundos
+  </script>
+
+</body>
+</html>
+
+
